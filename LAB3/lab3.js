@@ -86,7 +86,7 @@ function stop(){
     console.log("stop ")
    win.focus()
 }
-function scroll () {
+function scroll1 () {
     win = open('scroll.html', '', 'width=300,height=300')
     myInt = setInterval( function (){
            win.scrollBy(0,1)
@@ -95,23 +95,24 @@ function scroll () {
  
 
 }
-// win = open('scroll.html', '', 'width=300,height=300')
-function scrollWithTime () {
-    myInt = setTimeout( function (){
-           win.scrollBy(0,1)
-    }
-    )
- 
+let myTimer;
+function scroll2() {
+    win = open('scroll.html', '', 'width=300,height=300');
+    scrollWithTime(); 
+}
+
+function scrollWithTime() {
+    win.scrollBy(0, 1);
+    myTimer = setTimeout(scrollWithTime, 10); 
 }
 
 function stopTimer() {
-  clearTimeout(myInt);
+    clearTimeout(myTimer);
 }
 
 
-
-
-// scroll()
+// scroll2()
+// scroll1()
 // childWindow()
 // dispVal(obj,"age")
 // userInput()
