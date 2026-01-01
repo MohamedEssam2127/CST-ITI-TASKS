@@ -1,5 +1,5 @@
 function sortNums(){
-    let userSize = prompt("enter size of the array  ")  //  why user size work   it is string !
+    let userSize = prompt("enter size of the array  ") 
     if(isNaN(userSize)|| userSize===''){
         console.log ("invalid input")
     }
@@ -38,26 +38,26 @@ function showAddr (addrObj){
 
 let obj = {
     age: 15,
-    userName:"fefe"
+    userName:"moEsam"
 }
 
 
 function dispVal (obj, key) {
-    if(!! obj[key]){
+    if(obj.hasOwnProperty(key)){
         console.log(obj[key])
     }
     else {
         console.log("not exist ")
     }
     }
-
+///////////
+// 3
  let win  ;
  let myInt ;
-function childWindow (){
+function childWindow1 (){
     let flag = true;
     let childY;
     let childX;
-   
      win = open('child.html', '', 'width=300,height=300')
      myInt =  setInterval(function () {
          childY= win.screenY;
@@ -71,7 +71,7 @@ function childWindow (){
        }else {
         win.moveBy(-10,-10)
         win.resizeTo(300,300)
-        if (childX <= 10) { 
+        if (childY <= 10) { 
                 flag = true;
             }
        }
@@ -86,6 +86,47 @@ function stop(){
     console.log("stop ")
    win.focus()
 }
+
+function childWindow2() {
+ let flag = true;
+    let childY;
+  let childX;
+
+  win = open('child.html', '', 'width=300,height=300');
+
+    function move() {
+       if (win && !win.closed) {
+           childY = win.screenY;
+           childX = win.screenX;
+           if (flag) {
+               if (childY + 330 > screen.availHeight) {
+                   flag = false;
+                }
+                win.moveBy(10, 10);
+                win.resizeTo(300, 300);
+            } else {
+                win.moveBy(-10, -10);
+                win.resizeTo(300, 300);
+                if (childX <= 10) {
+                  flag = true;
+                }
+            }
+            console.log("x " + childX + "  y" + childY);
+            myInt = setTimeout(move, 50);
+        }
+    }
+
+    move();
+}
+
+// function stop() {
+//     clearTimeout(myInt);
+//     console.log("stop ");
+//     if (win && !win.closed) {
+//         win.focus();
+//     }
+// }
+
 function scroll1 () {
     win = open('scroll.html', '', 'width=300,height=300')
     myInt = setInterval( function (){
@@ -113,7 +154,8 @@ function stopTimer() {
 
 // scroll2()
 // scroll1()
-// childWindow()
+// childWindow1()
 // dispVal(obj,"age")
 // userInput()
 // sortNums()
+// childWindow2()
