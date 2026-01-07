@@ -1,5 +1,6 @@
 let counter  = 1;
 let myTime 
+
 function next () {
     let myImage =   document.getElementById("pics")
     if(counter < 6){

@@ -4,7 +4,7 @@ let counter =0;
 let score =0;
 let isProcessing = false;
 function flip(id){
-    if (isProcessing ||counter === 2) return;
+    if (isProcessing ||counter === 2) return; 
     let img = document.getElementById(id);
      if (counter === 1 && img === firstImg[1]) return;
     counter++
@@ -26,11 +26,13 @@ function flip(id){
                     isProcessing = false;
             } , 900)
         }else{
-                document.getElementById("score").textContent=  ++score   //i can't get the element before  page load 
+                document.getElementById("score").textContent=  ++score   
                 counter = 0;
                 isProcessing = false;
                 if(score===6) { 
-                    alert('congratulation !')
+                    setTimeout( function () {
+                          alert('congratulation !') 
+                    },200)
                     RessetButton()
                 }
 

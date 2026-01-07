@@ -12,4 +12,4 @@ function wait5sec () {
 }
 
 // typingMessage()
-// wait5sec()
+wait5sec()

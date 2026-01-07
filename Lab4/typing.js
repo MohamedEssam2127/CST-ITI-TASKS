@@ -2,7 +2,7 @@ let childWin ;
 let myTime ;
 
 function openChildWindow () {
- childWin.onload = function() {
+ childWin.onload = function() { //
         typingMessage();
     };
  

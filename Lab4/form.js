@@ -1,7 +1,9 @@
 let data 
 let dataObj  ={}
 function getData () {
-    console.log("hee")
+  if (isChrome()){
+
+ console.log("hee")
     data =location.search.substring(1).split("&")
     for (let i =0 ;i < data.length;i++){
         var item = data[i];
@@ -12,6 +14,9 @@ function getData () {
     }
     console.log(dataObj)
     setData();
+
+  }
+   
 }
 
 function setData() {
@@ -20,4 +25,10 @@ function setData() {
      document.getElementById("email").innerText = dataObj["email"];
     document.getElementById("mobile").innerText = dataObj["mobile"];
   document.getElementById("gender").innerText = dataObj["gender"];
+}
+
+// navigator.userAgent
+function isChrome() {
+  const userage = navigator.userAgent;
+  return userage.includes("Chrome") ;
 }
